@@ -73,7 +73,9 @@ web_modules/
 
 # dotenv environment variable files
 .env
+development.env
 .env.development.local
+test.env
 .env.test.local
 .env.production.local
 .env.local

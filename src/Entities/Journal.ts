@@ -8,10 +8,19 @@ export class Journal {
   @PrimaryGeneratedColumn()
   id!: number
 
-  @Column()
+  @Column({
+    name: 'note',
+    type: 'varchar',
+    length: 150,
+    unique: false,
+  })
   note!: string
 
-  @Column()
+  @Column({
+    name: 'symbol',
+    type: 'timestamptz',
+    unique: false,
+  })
   createdDate!: Date
 
   @ManyToOne(() => User, (user) => user.journal)

@@ -1,38 +1,94 @@
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, ManyToOne } from 'typeorm'
-import {User } from "./User"
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  BaseEntity,
+  ManyToOne,
+  OneToOne,
+  JoinColumn,
+  Timestamp,
+} from 'typeorm'
+import { User } from './User'
+import { Journal } from './Journal'
 
 @Entity()
 export class Trades {
   @PrimaryGeneratedColumn()
   id!: number
 
-  @Column()
+  @Column({
+    name: 'status',
+    type: 'varchar',
+    length: 150,
+    unique: false,
+  })
   status!: string
 
-  @Column()
+  @Column({
+    name: 'openDate',
+    type: 'timestamptz',
+    unique: false,
+  })
   openDate!: Date
 
-  @Column()
-  closeDate!: number
+  @Column({
+    name: 'closeDate',
+    type: 'timestamptz',
+    unique: false,
+  })
+  closeDate!: Date
 
-  @Column()
+  @Column({
+    name: 'symbol',
+    type: 'varchar',
+    length: 150,
+    unique: false,
+  })
   symbol!: string
 
-  @Column()
+  @Column({
+    name: 'entry',
+    type: 'float',
+    length: 100,
+    unique: false,
+  })
   entry!: number
 
-  @Column()
+  @Column({
+    name: 'entry',
+    type: 'float',
+    length: 100,
+    unique: false,
+  })
   exit!: number
 
-  @Column()
+  @Column({
+    name: 'entry',
+    type: 'float',
+    length: 100,
+    unique: false,
+  })
   return!: number
 
-  @Column()
-  setup!: number
+  @Column({
+    name: 'setup',
+    type: 'varchar',
+    length: 150,
+    unique: false,
+  })
+  setup!: string
 
-  @Column()
+  @Column({
+    name: 'createdDate',
+    type: 'timestamptz',
+    unique: false,
+  })
   createdDate!: Date
 
   @ManyToOne(() => User, (user) => user.trades)
   user!: User
+
+  @OneToOne(() => Journal)
+  @JoinColumn()
+  journal!: Journal
 }

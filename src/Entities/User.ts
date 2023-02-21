@@ -7,24 +7,48 @@ export class User {
   @PrimaryGeneratedColumn()
   id!: number
 
-  @Column()
+  @Column({
+    name: 'userName',
+    type: 'varchar',
+    length: 150,
+    unique: false,
+  })
   userName!: string
 
-  @Column()
+  @Column({
+    name: 'firstName',
+    type: 'varchar',
+    length: 150,
+    unique: false,
+  })
   firstName!: string
 
-  @Column()
+  @Column({
+    name: 'lastName',
+    type: 'varchar',
+    length: 150,
+    unique: false,
+  })
   lastName!: string
 
-  @Column()
+  @Column({
+    name: 'email',
+    type: 'varchar',
+    length: 150,
+    unique: false,
+  })
   email!: string
 
-  @Column()
+  @Column({
+    name: 'symbol',
+    type: 'timestamptz',
+    unique: false,
+  })
   createdDate!: Date
 
   @OneToMany(() => Trades, (trades) => trades.user)
   trades!: Trades[]
-    
+
   @OneToMany(() => Journal, (journal) => journal.user)
   journal!: Trades[]
 }
