@@ -8,7 +8,7 @@ export class User {
   id!: number
 
   @Column({
-    name: 'userName',
+    name: 'user_Name',
     type: 'varchar',
     length: 150,
     unique: false,
@@ -16,7 +16,7 @@ export class User {
   userName!: string
 
   @Column({
-    name: 'firstName',
+    name: 'first_Name',
     type: 'varchar',
     length: 150,
     unique: false,
@@ -24,7 +24,7 @@ export class User {
   firstName!: string
 
   @Column({
-    name: 'lastName',
+    name: 'last_Name',
     type: 'varchar',
     length: 150,
     unique: false,

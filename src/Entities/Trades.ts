@@ -25,14 +25,14 @@ export class Trades {
   status!: string
 
   @Column({
-    name: 'openDate',
+    name: 'open_Date',
     type: 'timestamptz',
     unique: false,
   })
   openDate!: Date
 
   @Column({
-    name: 'closeDate',
+    name: 'close_Date',
     type: 'timestamptz',
     unique: false,
   })
@@ -79,7 +79,7 @@ export class Trades {
   setup!: string
 
   @Column({
-    name: 'createdDate',
+    name: 'created_Date',
     type: 'timestamptz',
     unique: false,
   })
